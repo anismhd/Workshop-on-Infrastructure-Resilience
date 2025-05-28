@@ -15,7 +15,7 @@ A basic understanding of Python is essential for this session. Participants are 
 
 # Excercises
 
-## Excercise 01 - Resilience of a simple community with five components
+## Excercise 01 - Resilience of a simple community network
 ![Ex01](https://nikolablagojevic.github.io/pyrecodes/html/_images/Example_1_Community.png)
-## Excercise 02 - Resilience REsidential Community
+## Excercise 02 - Resilience of a residential network
 ![Ex02](https://nikolablagojevic.github.io/pyrecodes/html/_images/example_5_recovery_animation.gif)
