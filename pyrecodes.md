@@ -16,7 +16,7 @@ $$ S_{sys,RS}^C(t) = \sum_{i \in (1,2,\dots,I)} S_{i,RS}^C (t) $$
 
 where  $D_{i,RS} (t)$ and $S_{i,RS}^C (t)$ are the demand and supply capacity of component i for R/S at time t, respectively.
 
-System R/S distribution model, $\phi_{RS}$ , simulates the transfer of the considered R/Ss among components, and accounts for the topology and the state of the R/S distribution network, dispatch/allocation strategies of the system operator and the physical laws that govern the distribution of the considered R/S. Finally, the amount of supply made available to a component $i$ at time $t$ for a R/S is estimated using distribution model is termed as $ S_{i,RS}^{av} (t)$.
+System R/S distribution model, $\phi_{RS}$ , simulates the transfer of the considered R/Ss among components, and accounts for the topology and the state of the R/S distribution network, dispatch/allocation strategies of the system operator and the physical laws that govern the distribution of the considered R/S. Finally, the amount of supply made available to a component $i$ at time $t$ for a R/S is estimated using distribution model is termed as $S_{i,RS}^{av} (t)$.
 
 The amount of R/S component $i$ consumes at time $t$ , $C_{i,RS} (t)$, is the smaller of component’s demand $D_{i,RS} (t)$ and the supply available to the component, $S_{i,RS}^C (t)$
 
