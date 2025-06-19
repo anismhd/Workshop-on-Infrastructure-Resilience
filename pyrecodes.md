@@ -12,5 +12,22 @@ The systems demand and supply capacity for a R/S at time $t$, $D_{sys,RS} (t)$ a
 
 $$ D_{sys,RS} (t) = \sum_{i \in (1,2,\dots,I)} D_{i,RS} (t) $$
 
-
 $$ S_{sys,RS}^C(t) = \sum_{i \in (1,2,\dots,I)} S_{i,RS}^C (t) $$
+
+where  $D_{i,RS} (t)$ and $S_{i,RS}^C (t)$ are the demand and supply capacity of component i for R/S at time t, respectively.
+
+System R/S distribution model, $\phi_{RS}$ , simulates the transfer of the considered R/Ss among components, and accounts for the topology and the state of the R/S distribution network, dispatch/allocation strategies of the system operator and the physical laws that govern the distribution of the considered R/S. Finally, the amount of supply made available to a component $i$ at time $t$ for a R/S is estimated using distribution model is termed as $ S_{i,RS}^{av} (t)$.
+
+The amount of R/S component $i$ consumes at time $t$ , $C_{i,RS} (t)$, is the smaller of component’s demand $D_{i,RS} (t)$ and the supply available to the component, $S_{i,RS}^C (t)$
+
+$$ C_{i,RS}(t) = min(S_{i,RS}^{av} (t), D_{i,RS} (t)) $$
+
+The aggregate sum of the consumptions of all components for a R/S at time $t$ is the system’s consumption for R/S at time $t$, 
+
+$$ C_{sys,RS}(t) = \sum C_{i,RS}(t) $$
+
+The damage state of a component evolves during the system resilience assessment interval. All components are assumed to be undamaged and fully functional at time $t_0$ before a disaster happens. Damage states of each component immediately after the disaster are determined using component vulnerability functions that link the intensity of a disaster at the location of the component to its damage state. The recovery process is represented by a decrease of component damage state and a corresponding increase in component functionality, reflected in the evolution of component demand $D_{i,RS} (t)$, supply capacity $S_{i,RS}^C (t)$ and consumption $C_{i,RS}(t)$ over time during system resilience assessment.
+
+A systems Lack of Resilience is defined as the inability of current demand of the system, as defined in Eq. (1), cannot be fully met by system supply. Quantitatively, this can be defined as;
+
+$$ LoR_{sys, R/S} = \int_{t_0}^{t_f} (D_{sys,RS}(t) - C_{sys,RS}(t)) dt $$
