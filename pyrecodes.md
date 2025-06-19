@@ -30,10 +30,13 @@ The damage state of a component evolves during the system resilience assessment 
 
 A systems Lack of Resilience is defined as the inability of current demand of the system, as defined in Eq. (1), cannot be fully met by system supply. Quantitatively, this can be defined as;
 
-## Major Classes of pyrecodes
-1. __System Class__: The System class contains objects representing system’s components and parameters to define resource distribution
-
 $$ LoR_{sys, R/S} = \int_{t_0}^{t_f} (D_{sys,RS}(t) - C_{sys,RS}(t)) dt $$
 
 ## Implementation in pyrecodes
 ![object-oriented architecture of pyrecodes](Presentation/Figures/pyrecodes_oop.PNG)
+
+
+## Major Classes of pyrecodes
+1. __SystemCreator class__: For creating a System class which contains objects representing system’s components and parameters to define resource distribution.
+2. __Component Class__: A Component class represents components in the system. Each component is characterized by its functionality level, supply and demand, which change during the resilience assessment interval, and the locality, which is static and defines the geographical location of the component.
+3. 
