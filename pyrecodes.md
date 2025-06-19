@@ -31,3 +31,6 @@ The damage state of a component evolves during the system resilience assessment 
 A systems Lack of Resilience is defined as the inability of current demand of the system, as defined in Eq. (1), cannot be fully met by system supply. Quantitatively, this can be defined as;
 
 $$ LoR_{sys, R/S} = \int_{t_0}^{t_f} (D_{sys,RS}(t) - C_{sys,RS}(t)) dt $$
+
+## Implementation in pyrecodes
+![object-oriented architecture of pyrecodes](Presentation/Figures/pyrecodes_oop.PNG)
