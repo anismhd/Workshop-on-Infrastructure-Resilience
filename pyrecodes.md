@@ -10,10 +10,7 @@ An interconnected system in iRe-CoDeS framework is modelled as omponents that ex
 
 The systems demand and supply capacity for a R/S at time $t$, $D_{sys,RS} (t)$ and $S_{sys,RS}^C(t)$, are defined as the aggregate of the demands and supply capacities of all components for that R/S at time $t$
 
-\begin{equation}
-	D_{sys,RS} (t) = \sum_{i \in (1,2,\dots,I)} D_{i,RS} (t)
-\end{equation}
+$$ D_{sys,RS} (t) = \sum_{i \in (1,2,\dots,I)} D_{i,RS} (t) $$
 
-\begin{equation}
-	S_{sys,RS}^C(t) = \sum_{i \in (1,2,\dots,I)} S_{i,RS}^C (t)
-\end{equation}
+
+$$ S_{sys,RS}^C(t) = \sum_{i \in (1,2,\dots,I)} S_{i,RS}^C (t) $$
