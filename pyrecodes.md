@@ -40,3 +40,135 @@ $$ LoR_{sys, R/S} = \int_{t_0}^{t_f} (D_{sys,RS}(t) - C_{sys,RS}(t)) dt $$
 1. __SystemCreator class__: For creating a System class which contains objects representing system’s components and parameters to define resource distribution.
 2. __Component Class__: A Component class represents components in the system. Each component is characterized by its functionality level, supply and demand, which change during the resilience assessment interval, and the locality, which is static and defines the geographical location of the component.
 3. 
+Component Library
+-----------------
+
+A system in **pyrecodes** is discretized into components. As such components can be numerous but still share similar characteristics (e.g., residential buildings and commercial buildings), to avoid defining each component individually **pyrecodes** allows users to define a component library with component templates. This library enables users to define common parameters once and then customize specific attributes for individual components later when system is created, reducing redundancy in parameter input while maintaining consistency. Each component template consists of the following parameters:
+
+- **Component class**: defines the type of the **pyrecodes** component class.
+
+- **Recovery model**: defines the recovery model of the component and its parameters.
+
+- **Supply**: defines the resource supply of the component - resources that the component provides to the system and how their amount relates to component's functionality and unmet demand.
+
+- **Operation demand**: defines the operation demand of the component - resources that the component needs to operate and how their amount relates to component's functionality.
+
+.. hint::
+
+    Variables in square brackets need to be replaced with appropriate class names or values. Please check out the `Documentation <./documentation.html>`_ page for the available classes and their parameter format and the `Examples <examples.html>`_ page to see how they are implemented.
+
+Component library contains component template parameters in the following format:
+
+.. toggle::
+
+    ::
+
+        {
+            [ComponentName]: {
+                "ComponentClass": [ComponentClassDefinition],
+                "RecoveryModel": {
+                    "FileName": [ComponentRecoveryModelFileName],
+                    "ClassName": [ComponentRecoveryModelClassName],
+                    "Parameters": [ComponentRecoveryModelClassParameters],
+                    "DamageFunctionalityRelation": {
+                        "Type": [RelationClassName]
+                    }
+                },
+                "Supply": {
+                    [ResourceName]: {
+                        "Amount": [Amount],
+                        "FunctionalityToAmountRelation": [RelationClassName],
+                        "UnmetDemandToAmountRelation": [RelationClassName]
+                    }
+                },
+                "OperationDemand": {
+                    [ResourceName]: {
+                        "Amount": [Amount],
+                        "FunctionalityToAmountRelation": [RelationClassName]
+                    }
+                }
+            }
+        }
+
+System configuration
+--------------------
+
+The system configuration file defines the spatial distribution of components, thus defining the system. Additionally, it defines the damage input model, resource parameters, resilience calculators, and temporal discretization of the system.
+
+In terms of spatial discretization, components in **pyrecodes** are located in geographical units called localities. Resources can freely flow within localities without needing links. Links, which are components themselves, connect components across localities, enabling resource transfer between them. This spatial discretization simplifies modeling by not considering links within a locality. One can still consider links among each component by placing each component in a separate locality. On the other hand, placing all components in a single locality (Example 3) allows one to not consider any links, and thus simplify resilience assessment. In terms of coordinates, **pyrecodes** can define the coordinate of a locality through its centroid (Examples 1 and 2), as a bounding box (Examples 3 and 4) or a geojson file (Example 5). Components can also have their coordinates, but are not required as long as component's locality is defined.
+
+The system configuration file defines the following:
+
+- **Constants**: temporal discretization of the system and system-class specific constants.
+- **Content of Localities**: number and type of components located in and between localities.
+- **Damage input**: damage input model and its parameters.
+- **Resources**: resource parameters including their resource distribution models and component priorities.
+- **Resilience calculators**: resilience calculators and their parameters.
+
+System configuration file is structured as follows:
+
+.. toggle::
+
+    ::
+
+        {
+            "Constants": {
+                "START_TIME_STEP": [Value],
+                "MAX_TIME_STEP": [Value],
+                "DISASTER_TIME_STEP": [Value],
+                "[SystemClassSpecificParameters]": [Values]            
+            },
+            "Content": {
+                [LocalityName]: [LocalityCoordinatesAndContent],
+            },
+            "DamageInput": {
+                "FileName": [DamageInputFileName],
+                "ClassName": [DamageInputClassName],
+                "Parameters": [DamageInputClassParameters]
+            },
+            "Resources": {
+                [ResourceName]: {
+                    "Group": [ResourceGroupName],
+                    "DistributionModel": {
+                        "FileName": [ResourceDistributionModelFileName],
+                        "ClassName": [ResourceDistributionModelClassName],
+                        "Parameters": {
+                            [DistributionModelParameters]
+                        }
+                    }
+                }
+            },
+            "ResilienceCalculator": [
+                {
+                    "FileName": [ResilienceCalculatorFileName],
+                    "ClassName": [ResilienceCalculatorClassName],
+                    "Parameters": {
+                        [ResilienceCalculatorClassParameters]
+                        }
+                }
+            ]
+        }
+
+Main
+----
+
+Finally, the user needs to define the main file, which specifies the class of the **pyrecodes** system configuration and component library and calls already defined JSON files :
+
+.. toggle::
+
+    ::
+
+        {
+            "ComponentLibrary": {
+                "ComponentLibraryCreatorFileName": [ComponentLibraryCreatorFileName],
+                "ComponentLibraryCreatorClassName": [ComponentLibraryCreatorClassName],
+                "ComponentLibraryFile": [PathToComponentLibraryFile]
+            },
+            "System": {
+                "SystemCreatorClassName": [SystemCreatorClassName],
+                "SystemCreatorFileName": [SystemCreatorClassName],
+                "SystemClass": [SystemClassName],
+                "SystemConfigurationFile": [PathToSystemConfigurationFile]
+            }
+        }
+
