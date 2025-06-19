@@ -19,3 +19,7 @@ A basic understanding of Python is essential for this session. Participants are 
 ![Ex01](https://nikolablagojevic.github.io/pyrecodes/html/_images/Example_1_Community.png)
 ## Excercise 02 - Resilience of a residential network
 ![Ex02](https://nikolablagojevic.github.io/pyrecodes/html/_images/example_5_recovery_animation.gif)
+
+# References
+1. Blagojević, Nikola, and Bozidar Stojadinovic. "pyrecodes: An Open-Source Python Library for Resilience Assessment of the Built Environment." 18th World Conference on Earthquake Engineering (WCEE 2024). 2024.
+2. Terzic, Vesna, et al. "F-rec framework: novel framework for probabilistic evaluation of functional recovery of building systems." PEER Report 6 (2021): 2021.
