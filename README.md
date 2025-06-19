@@ -10,10 +10,10 @@ The handown section will be carried out in CC of IITB. The softwares and librari
 2. [Hazus or DesignSafe R2D](https://www.fema.gov/flood-maps/products-tools/hazus) - [Optional] FEMA’s Hazus Program provides standardized tools and data for estimating risk from earthquakes, floods, tsunamis, and hurricanes. Hazus models combine expertise from many disciplines to create actionable risk information that increases community resilience.
 3. [QGIS](https://qgis.org/download/) - [Optional] A free and open-source desktop Geographical Information System (GIS) software.
 
-# Prerequisite
+## Prerequisite
 A basic understanding of Python is essential for this session. Participants are encouraged to review the (basic Python training materials)(https://www.python.org/about/gettingstarted/)  beforehand.
 
-# Excercises
+## Excercises
 
 ## Excercise 01 - Resilience of a simple community network
 ![Ex01](https://nikolablagojevic.github.io/pyrecodes/html/_images/Example_1_Community.png)
