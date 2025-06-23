@@ -8,9 +8,9 @@ In iRe-CoDeS framework resilience is quantifies the resilience of a system conce
 ## Installation of pyrecodes
 Run the following command for installing pyrecodes;
 .. code-block:: Python
-
     pip install --pre pyrecodes
 
+On windows pip installation may face some dependancy issue. As an alternative, you may download slighly modified pyrecodes from [here](https://github.com/anismhd/Workshop-on-Infrastructure-Resilience/blob/main/Data/pyrecodes-SSRR.zip). And install using pip command.
 
 ## Bried Description of iRe-CoDeS framework
 An interconnected system in iRe-CoDeS framework is modelled as omponents that exchanges resources and services (R/Ss) (ex: building material, labour or inspection services). For residential community, these component can be residential building which provides service of shelter, power plants which provides electricity, road networks which provides service of enabling exchange of R/Ss. 
