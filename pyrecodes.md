@@ -8,6 +8,7 @@ In iRe-CoDeS framework resilience is quantifies the resilience of a system conce
 ## Installation of pyrecodes
 Run the following command for installing pyrecodes;
 .. code-block:: Python
+
     pip install --pre pyrecodes
 
 On windows pip installation may face some dependancy issue. As an alternative, you may download slighly modified pyrecodes from [here](https://github.com/anismhd/Workshop-on-Infrastructure-Resilience/blob/main/Data/pyrecodes-SSRR.zip). And install using pip command.
